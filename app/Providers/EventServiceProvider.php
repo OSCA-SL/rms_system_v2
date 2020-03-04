@@ -18,6 +18,14 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
+
+        'App\Events\SongUploaded' => [
+            'App\Listeners\SendHashRequest',
+        ],
+
+        'App\Events\FileWanted' => [
+            'App\Listeners\ProcessFiles',
+        ],
     ];
 
     /**
