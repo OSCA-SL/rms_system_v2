@@ -105,6 +105,12 @@ return [
             'path' => storage_path('logs/hashlog/songhash.log'),
             'level' => 'debug'
         ],
+
+        'clipsmerge' => [
+            'driver' => 'daily',
+            'path' => storage_path('logs/mergelog/merges.log'),
+            'level' => 'debug'
+        ],
     ],
 
 ];
