@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Jobs\ProcessFiles;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -25,6 +26,8 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('inspire')->hourly();
+        // Dispatch the file process job
+        $schedule->job(new ProcessFiles)->cron('*/2 * * * *');
     }
 
     /**
