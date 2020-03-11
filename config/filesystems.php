@@ -64,6 +64,25 @@ return [
             'url' => env('AWS_URL'),
         ],
 
+        'ftp' => [
+            'driver' => 'ftp',
+            'host' => env('FTP_HOST'),
+            'username' => env('FTP_USERNAME'),
+            'password' => env('FTP_PASSWORD'),
+
+            // Optional FTP Settings...
+            'port' => env('FTP_PORT'),
+            // 'root' => '',
+            // 'passive' => true,
+            // 'ssl' => true,
+            // 'timeout' => 30,
+        ],
+
+        'clips' => [
+            'driver' => 'local',
+            'root' => storage_path('app/clips'),
+        ],
+
     ],
 
     /*
