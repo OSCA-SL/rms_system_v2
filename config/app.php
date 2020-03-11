@@ -124,6 +124,15 @@ return [
     'cipher' => 'AES-256-CBC',
 
     /*
+     * user env variables
+     */
+
+    'radio_username'    => env('API_USERNAME', 'TheHAcker'),
+    'radio_password'    => env('API_PASSWORD', 'sdfajksfh'),
+    'song_register_url' => env('SONG_REGISTER_URL', "jddlkfj89"),
+    'match_url'         => env('MATCH_CLIP_URL', "sdfsdf"),
+
+    /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers
     |--------------------------------------------------------------------------
