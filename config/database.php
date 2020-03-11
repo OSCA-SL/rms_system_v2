@@ -91,6 +91,48 @@ return [
             'prefix_indexes' => true,
         ],
 
+        'mysql_cloud' => [
+
+            'sticky'    => true,
+            'driver' => 'mysql',
+            'url' => env('DATABASE_URL'),
+            'host' => env('CLOUD_DB_HOST', '127.0.0.1'),
+            'port' => env('CLOUD_DB_PORT', '3306'),
+            'database' => env('CLOUD_DB_DATABASE', 'dsafds'),
+            'username' => env('CLOUD_DB_USERNAME', 'sdaf'),
+            'password' => env('CLOUD_DB_PASSWORD', ''),
+            'unix_socket' => env('DB_SOCKET', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'prefix_indexes' => true,
+            'strict' => true,
+            'engine' => null,
+            'options' => extension_loaded('pdo_mysql') ? array_filter([
+                PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
+            ]) : [],
+        ],
+
+        'mysql_system' => [
+            'driver' => 'mysql',
+            'url' => env('REMOTE_DATABASE_URL'),
+            'host' => env('SYSTEM_DB_HOST', 'localhost'),
+            'port' => env('SYSTEM_DB_PORT', '3306'),
+            'database' => env('SYSTEM_DB_DATABASE', 'dsafda'),
+            'username' => env('SYSTEM_DB_USERNAME', 'dsafsda'),
+            'password' => env('SYSTEM_DB_PASSWORD', ''),
+            'unix_socket' => env('REMOTE_DB_SOCKET', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'prefix_indexes' => true,
+            'strict' => true,
+            'engine' => null,
+            'options' => extension_loaded('pdo_mysql') ? array_filter([
+                PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
+            ]) : [],
+        ],
+
     ],
 
     /*
