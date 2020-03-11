@@ -8,6 +8,7 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Psr\Http\Message\ResponseInterface;
 
@@ -56,8 +57,12 @@ class SendHashRequest implements ShouldQueue
         $song = $event->song;
         $file_path = $event->file_path;
 
-
         $register_url = config('app.song_register_url');
+
+        DB::connection('mysql_system')
+            ->table('fingerprints')
+            ->where('song_id', '=', $song->id)
+            ->delete();
 
         $client = new Client();
         $promise = $client->postAsync($register_url, [
